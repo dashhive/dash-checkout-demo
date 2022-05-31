@@ -295,8 +295,6 @@ app.get(`/api/public/account/:token/status`, rCheckTokenStatus);
 app.use("/api/hello", Merchant.rTokenAuth);
 app.get("/api/hello", getHelloStuff);
 
-app.use("/", require("./server-service.js").routes);
-
 // Default API Error Handler
 app.use("/api", Merchant.finalErrorHandler);
 
