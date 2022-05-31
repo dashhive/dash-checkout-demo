@@ -1,6 +1,10 @@
-# Dash Merchant Payments Demo
+# _Dash Checkout_ Demo (Merchant App)
 
-Registers an address with the test webhook service and logs out payments to that address.
+This web app represents a store that uses Dash Checkout.
+
+Dash Checkout is similar to PayPal Checkout and Stripe Checkout, but for Dash (Digital Cash).
+
+In the same way that other _Checkout_ SDKs allow sites like _ebay_ and _Etsy_ to make it easy for your to purchase from them in fiat, _Dash Checkout_ makes it easy for your customers to purchase from you in Digital Cash.
 
 <kbd><img width="606" alt="payment demo screenshot" src="https://user-images.githubusercontent.com/122831/156580178-6e84bc85-0804-4dc1-aa8a-553cf97ed0e6.png"></kbd>
 
@@ -86,7 +90,7 @@ Authorization: Bearer Tttttttttttttttttttt
 }
 ```
 
-## Merchant Payment API
+## Demo Merchant API
 
 ```txt
 GET /api/public/plans
@@ -116,39 +120,6 @@ The webhook is authenticated with HTTP Basic Auth. It uses either the given user
 ```txt
 POST /api/webhooks/payment-accepted
 Authorization: Basic Mmmmmmmmmmmmmmmmmmmmmmmm
-
-{
-    "address": "Xxxxxxxxxxxxxxxxxxxxxxxxxxxxcccccc",
-    "event": "txlock",
-    "satoshis": 100100100,
-    "txid": "0000000000000000000000000000000000000000000000000000000000000000"
-}
-
-{
-    "address": "Xxxxxxxxxxxxxxxxxxxxxxxxxxxxcccccc",
-    "satoshis": 100100100
-}
-```
-
-## Internal Service API
-
-Receive payment confirmation webhooks from a Dash WebHook Service
-
-```txt
-POST /api/webhooks/
-Authorization: Bearer Txxxxxxxxxxxxxxxxxxxxxxx
-
-{
-    "address": "Xxxxxxxxxxxxxxxxxxxxxxxxxxxxcccccc",
-    "url": "https://[api:token@]example.com/api/webhooks/payment-accepted",
-}
-```
-
-The webhook is authenticated with HTTP Basic Auth. It uses either the given username and password or a dummy username and the token as the password.
-
-```txt
-POST /api/full-node-webhooks/dwh
-Authorization: Basic <Base64(api:xxxxxxxxxxxxxxxxxxxxxxx)>
 
 {
     "address": "Xxxxxxxxxxxxxxxxxxxxxxxxxxxxcccccc",

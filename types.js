@@ -83,20 +83,3 @@
  * @property {Number} [requests_remaining]
  * @property {Number} status - the HTTP status code
  */
-
-//
-//
-// Service Types
-//
-//
-
-/**
- * @typedef {Object} FullNodeWebhook
- * @property {String} address
- * @property {String} event - Name of the event (i.e. "txlock")
- * @property {Boolean} instantsend - Should always be true (for Dash at least)
- * @property {String} [p2pkh]
- * @property {String} [received_at]
- * @property {Number} satoshis
- * @property {String} txid - TX "Script" Hash
- */
